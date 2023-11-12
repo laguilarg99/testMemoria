@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nombre Web</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script type = "text/javascript">
+        function displayNextImage() {
+            x = (x === images.length - 1) ? 0 : x + 1;
+            document.getElementById('img').src = images[x];
+            keyPress = false;
+            repeated = false;
+            elementSrc = document.getElementById('img').src     
+            if(elementSrc.match("Circulo3") || elementSrc.match("Triangulo9") ||
+                        elementSrc.match("Cuadrado15") ||   elementSrc.match("Triangulo22") ||  
+                        elementSrc.match("Cuadrado27") || elementSrc.match("Circulo29")) {
+                            repeated = true;
+            }
+            if(elementSrc.match("Disc31")){
+                prompt("Copiar: Ctrl+C, Enter", times);
+                window.location.href = "index.html";
+            }
+
+            start = performance.now();
+        }
+
+        function startTimer() {            
+            setInterval(displayNextImage, 2000);
+        }
+
+        var times = []
+        var images = [], x = -1;
+
+        images[0] = "ImagenesPrueba/ensayoprueba1.png";
+        images[1] = "ImagenesPrueba/ensayoprueba2.png";
+        images[2] = "ImagenesPrueba/ensayoprueba3.png";
+        images[3] = "ImagenesPrueba/ensayoprueba4.png";
+        images[4] = "ImagenesPrueba/ensayoprueba5.png";
+        images[5] = "ImagenesPrueba/ensayoprueba6.png";
+       
+        
+        images[6] = "ImagenesTestNeutro/positivoTriangulo1.png";
+        images[7] = "ImagenesTestNeutro/positivoCirculo2.png";
+        images[8] = "ImagenesTestNeutro/positivoCirculo3.png"; //repetida
+        images[9] = "ImagenesTestNeutro/positivoCuadrado4.png";
+        images[10] = "ImagenesTestNeutro/positivoRectangulo5.png";
+        images[11] = "ImagenesTestNeutro/neutroAlicate6.png";
+        images[12] = "ImagenesTestNeutro/positivoRectangulo7.png";
+        images[13] = "ImagenesTestNeutro/positivoTriangulo8.png";
+        images[14] = "ImagenesTestNeutro/positivoTriangulo9.png"; //repetida
+        images[15] = "ImagenesTestNeutro/positivoCuadrado10.png";
+        images[16] = "ImagenesTestNeutro/positivoCirculo11.png";
+        images[17] = "ImagenesTestNeutro/neutroCuchara12.png";
+        images[18] = "ImagenesTestNeutro/positivoRectangulo13.png";
+        images[19] = "ImagenesTestNeutro/positivoCuadrado14.png";
+        images[20] = "ImagenesTestNeutro/positivoCuadrado15.png"; //repetida
+        images[21] = "ImagenesTestNeutro/positivoCirculo16.png";
+        images[22] = "ImagenesTestNeutro/positivoTriangulo17.png";
+        images[23] = "ImagenesTestNeutro/neutroAlfombra18.png";
+        images[24] = "ImagenesTestNeutro/positivoCirculo19.png";
+        images[25] = "ImagenesTestNeutro/positivoRectangulo20.png";
+        images[26] = "ImagenesTestNeutro/positivoTriangulo21.png";
+        images[27] = "ImagenesTestNeutro/positivoTriangulo22.png";//repetida
+        images[28] = "ImagenesTestNeutro/positivoCirculo23.png";
+        images[29] = "ImagenesTestNeutro/neutroSilla24.png";
+        images[30] = "ImagenesTestNeutro/positivoRectangulo25.png";
+        images[31] = "ImagenesTestNeutro/positivoCuadrado26.png";
+        images[32] = "ImagenesTestNeutro/positivoCuadrado27.png";//repetida
+        images[33] = "ImagenesTestNeutro/positivoCirculo28.png";
+        images[34] = "ImagenesTestNeutro/positivoCirculo29.png";//repetida
+        images[35] = "ImagenesTestPositivo/positivoTestFinalizado30.png";
+        images[36] = "ImagenesTestNeutro/neutroDisc31.png";
+
+    </script>
+  </head>
+  <body  onload = "startTimer()" class="p-3 m-0 w-100 h-100 border-0 bd-example m-0 border-0">    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <img id="img" class="col-md-9" src="ImagenesPrueba/ensayoprueba1.png">
+                    <script>
+                        document.addEventListener('keydown', (event)=> {    
+                            if(elementSrc != null){ 
+                                if( event.code == "Digit1" && elementSrc.match("Circulo") && !keyPress && !repeated) {
+                                    end = performance.now();
+                                    keyPress = true;
+                                    timeTaken = end - start; 
+                                    times.push(x - 5, timeTaken)
+                                    console.log("Function Circle took " + 
+                                        timeTaken + " milliseconds"); 
+                                }
+                                else if( event.code == "Digit2" && elementSrc.match("Rectangulo") && !keyPress && !repeated) {
+                                    end = performance.now();
+                                    keyPress = true;
+                                    timeTaken = end - start; 
+                                    times.push(x - 5, timeTaken)
+                                    console.log("Function Rectangle took " + 
+                                        timeTaken + " milliseconds"); 
+                                }
+                                else if( event.code == "Digit3" && elementSrc.match("Cuadrado") && !keyPress && !repeated) {
+                                    end = performance.now();
+                                    keyPress = true;
+                                    timeTaken = end - start;
+                                    times.push(x - 5, timeTaken) 
+                                    console.log("Function Square took " + 
+                                        timeTaken + " milliseconds"); 
+                                }
+                                else if( event.code == "Digit4" && elementSrc.match("Triangulo") && !keyPress && !repeated) {
+                                    end = performance.now();
+                                    keyPress = true;
+                                    timeTaken = end - start; 
+                                    times.push(x - 5, timeTaken)
+                                    console.log("Function Triangle took " + 
+                                        timeTaken + " milliseconds"); 
+                                }
+                                else if( event.code == "Space" && repeated && !keyPress) {
+                                    end = performance.now();
+                                    keyPress = true;
+                                    timeTaken = end - start; 
+                                    times.push(x - 5, timeTaken)
+                                    console.log("Function Repeated took " + 
+                                        timeTaken + " milliseconds"); 
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>
+
